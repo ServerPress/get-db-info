@@ -7,4 +7,4 @@ DB_USER
 DB_PASSWORD
 DB_HOST
 
-Get's around XMLRPC error when ysuing the "Fetch live hosting server details. 
+Get's around XMLRPC error when using the "Fetch live hosting server details. 
