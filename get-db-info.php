@@ -61,7 +61,6 @@
 *
 */
 
-//$lines = file( 'wp-config.php' );
 include('wp-config.php');
 
 //Variables
