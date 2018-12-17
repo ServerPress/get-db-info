@@ -61,14 +61,15 @@
 *
 */
 
+//$lines = file( 'wp-config.php' );
+include('wp-config.php');
+
 //Variables
 $doc_root = getenv( 'DOCUMENT_ROOT' ) ; 
-$db_name = 'DB_NAME';
-$db_user = 'DB_USER';
-$db_pass = 'DB_PASSWORD';
-$db_host = 'DB_HOST';
-
-$lines = file( 'wp-config.php' );
+$db_name = DB_NAME;
+$db_user = DB_USER;
+$db_pass = DB_PASSWORD;
+$db_host = DB_HOST;
 
 echo '<h1 class="Header">Database Information</h1>';
 
@@ -82,41 +83,29 @@ echo '<p>Copy and paste these values into DesktopServer when creating an archive
 		echo '</div>';
 	endif;
 
-	foreach( $lines as $line ) {
-
 		// DB_NAME
-		if( strpos( $line, $db_name ) ) : 
 			echo '<div class="ds-content">';
-			echo '<label><span>DB_NAME: </span></label><input type="text" id="db_name" onclick="jQuery(this).select();" value="' . substr( $line, 19, -4 ) . '" readonly="readonly" class="display_gf_key">';
+			echo '<label><span>DB_NAME: </span></label><input type="text" id="db_name" onclick="jQuery(this).select();" value="' . $db_name  . '" readonly="readonly" class="display_gf_key">';
 			echo '<button class="btn" data-clipboard-target="#db_name">Copy</button>';
 			echo '</div>';
-		endif;
 
 		// DB_USER
-		if( strpos( $line, $db_user ) ) : 
 			echo '<div class="ds-content">';
-			echo '<label><span>DB_USER: </span></label><input type="text" id="db_user" onclick="jQuery(this).select();" value="' . substr( $line, 19, -4 ) . '" readonly="readonly" class="display_gf_key">';
+			echo '<label><span>DB_USER: </span></label><input type="text" id="db_user" onclick="jQuery(this).select();" value="' . $db_user . '" readonly="readonly" class="display_gf_key">';
 			echo '<button class="btn" data-clipboard-target="#db_user">Copy</button>';
 			echo '</div>';	
-		endif;
 
 		// DB_NAME
-		if( strpos( $line, $db_pass ) ) : 
 			echo '<div class="ds-content">';
-			echo '<label><span>DB_PASS: </span></label><input type="text" id="db_pass" onclick="jQuery(this).select();" value="' .  substr( $line, 23, -4 ) . '" readonly="readonly" class="display_gf_key">';
+			echo '<label><span>DB_PASS: </span></label><input type="text" id="db_pass" onclick="jQuery(this).select();" value="' .  $db_pass . '" readonly="readonly" class="display_gf_key">';
 			echo '<button class="btn" data-clipboard-target="#db_pass">Copy</button>';
 			echo '</div>';	
-		endif;
   
-		// DB_HOST
-		if( strpos( $line, $db_host ) ) : 
+		// DB_HOST 
 			echo '<div class="ds-content">';
-			echo '<label><span>DB_HOST: </span></label><input type="text" id="db_host" onclick="jQuery(this).select();" value="' .  substr( $line, 19, -4 ) . '" readonly="readonly" class="display_gf_key">';
+			echo '<label><span>DB_HOST: </span></label><input type="text" id="db_host" onclick="jQuery(this).select();" value="' .  $db_host . '" readonly="readonly" class="display_gf_key">';
 			echo '<button class="btn" data-clipboard-target="#db_host">Copy</button>';
-			echo '</div>';	
-		endif;
-
-	}
+			echo '</div>';
 
 ?>
 	<p>*Don't forget to delete this script from the host</p>
